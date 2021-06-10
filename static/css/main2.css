@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+  }
+
+.card {
+    box-shadow: 0 3px 6px 0 rgba(0,0,0, 0.2); 
+    padding: 7px;
+    text-align: center;
+    background-color: #cbd5dd;
+  }

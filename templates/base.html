@@ -1,0 +1,99 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+
+       <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static './css/main2.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <link rel="title icon" >
+   
+
+    
+    <title> {% block title %}
+    
+    {% endblock title %}</title>
+  </head>
+  <body>
+      <!-- Navbar -->
+
+   <nav class="navbar navbar-dark bg-dark">
+      <a class="text-white bg-dark" href= "{% url 'home' %}">
+      <h2> <i class="far fa-address-card" style='font-size:24px;color:white' ></i>  Contact Manager </h2>
+      </a> <p> </p>  <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> <p> </p> 
+      <p class="feature-link m-0 p-0">
+      {% if request.user.is_authenticated %}
+
+      <a href="{% url 'create' %}" class="p-3 mb-2 bg-dark text-white">
+      Add Contact
+      </a> 
+
+      <a href="{% url 'logout' %}" class="p-3 mb-2 bg-dark text-white">
+       Sign out
+      </a>
+      {% else %}
+      <a href="{% url 'signup' %}" class="p-3 mb-2 bg-dark text-white">
+      Register 
+      </a> 
+      <a href="{% url 'login' %}" class="p-3 mb-2 bg-dark text-white">
+      Sign in
+      </a>
+      {% endif %}
+      
+      </p>
+      <form class="form-inline my-2" action="{% url 'search' %}" method="GET">
+        <input
+          class="form-control search-box"
+          type="search"
+          placeholder="Search"
+          name="search_term"
+          value="{{search_term}}"
+        />
+        
+      </form>
+    </nav>
+    <!-- Navbar ends -->
+      <br />
+    {% include "partials/_message.html" %}
+    {% block content %}
+    
+    {% endblock content %}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+      <!-- Footer -->
+  <footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3"> <h5>Project Made By : Mohit Ahirwar (B19CSE055) and Ram Khandelwal (B19CSE116) </h5>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

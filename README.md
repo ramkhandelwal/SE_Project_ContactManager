@@ -1,1 +1,3 @@
-# SE_Project_ContactManager
+# SE Project 
+# Contact Management System
+

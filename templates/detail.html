@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+
+{% if contact.manager == request.user %}
+{{contact.name}}
+{% else %}
+You don't have access to this page!
+{% endif %}
+{% endblock title %}
+{% block content %}
+{% if contact.manager == request.user %}
+
+<!-- Main Section -->
+    <div class="container">
+      <h2 class="heading font-weight-light text-center">{{contact.name}}</h2>
+      <hr />
+    </div>
+    
+    <div class="container main-part" >
+      <!-- Card for details -->
+      {% include 'partials/_card.html' %}
+    </div>
+    <div class="container mt-3">
+    <h6 class="text-center text-secondary">Date Added: &nbsp; {{contact.date_added}}</h6>
+    <p class="text-center text-light">
+      <a class="btn btn-success " href="{% url 'update' contact.id %}">
+      Update
+      </a> 
+      <a class="btn btn-warning " href="{% url 'delete' contact.id %}">
+      Delete
+      </a>
+      </p>
+    </div>
+    <!-- Main Section ends-->
+{% endif %}
+{% endblock content %}
